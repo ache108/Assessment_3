@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<br />
+
+<table id="myTable1" class="table teable-condensed">
+
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Position</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Ben Phillips</td>
+            <td>bphillips@groovy.com</td>
+            <td>91235670</td>
+            <td>Agent</td>
+        </tr>
+        <tr>
+            <td>John Allen</td>
+            <td>jallen@groovy.com</td>
+            <td>91235678</td>
+            <td>Manager</td>
+        </tr>
+        <tr>
+            <td>Chris Wood</td>
+            <td>cwood@groovy.com</td>
+            <td>91235672</td>
+            <td>Agent</td>
+        </tr>
+        <tr>
+            <td>Sam Love</td>
+            <td>slove@groovy.com</td>
+            <td>91235673</td>
+            <td>Agent</td>
+        </tr>
+
+    </tbody>
+
+</table>
+
+@section Scripts{
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#myTable1').DataTable();
+        });
+
+    </script>
+
+}
+
+<br />
+<h3>
+    Below are the avaliable dates that our agents are avaliable for contact.
+    Grayed out dates means that they are unavaliable.
+</h3>
+<br />
+
+@Html.EJS().Calendar("element").RenderDayCell("disableDate").Value(@ViewBag.value).Render()
+
+<script>
+    function disableDate(args) {
+        if (args.date.getDay() === 0 || args.date.getDay() === 6 || args.date.getDate() === 1) {
+            args.isDisabled = true;
+        }
+    }
+</script>
+
+
+<h3>
+    If you wish to upload a file to our server, click the button below.
+</h3>
+
+<form enctype="multipart/form-data" method="post">
+    <dl>
+        <dt>
+            <label asp-for="FileUpload.FormFile"></label>
+        </dt>
+        <dd>
+            <input asp-for="FileUpload.FormFile" type="file">
+            <span asp-validation-for="FileUpload.FormFile"></span>
+        </dd>
+    </dl>
+    <input asp-page-handler="Upload" class="btn" type="submit" value="Upload" />
+</form>

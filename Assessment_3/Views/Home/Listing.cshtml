@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Listing";
+}
+
+<h2>Listings</h2>
+
+<br />
+
+<table id="myTable2" class="table teable-condensed">
+
+    <thead>
+        <tr>
+            <th>Address</th>
+            <th>Postcode</th>
+            <th>List Value</th>
+            <th>Rating (out of 5)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1 Station St</td>
+            <td>3023</td>
+            <td>150000</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>10 Boundary Rd</td>
+            <td>3100</td>
+            <td>250000</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>1 Toorak Rd</td>
+            <td>3005</td>
+            <td>1000000</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>150 Wood Rd</td>
+            <td>3950</td>
+            <td>100000</td>
+            <td>1</td>
+        </tr>
+
+    </tbody>
+
+</table>
+
+
+@section Scripts{
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#myTable2').DataTable();
+        });
+
+
+    </script>
+
+}
