@@ -48,7 +48,7 @@ namespace Assessment3.Controllers
             var client = new SendGridClient(apiKey);
             var msg = new SendGridMessage()
             {
-                From = new EmailAddress("test@example.com", "DX Team"),
+                From = new EmailAddress("test@gmail.com", "DX Team"),
                 Subject = "Sending with Twilio SendGrid is Fun",
                 PlainTextContent = "and easy to do anywhere, even with C#",
                 HtmlContent = "<strong>and easy to do anywhere, even with C#</strong>"
