@@ -40,7 +40,7 @@ namespace Assessment3.Controllers
 
 
 
-
+        //MAY HAVE ISSUE DUE TO GITHUB PUBLIC REPOSITORY RESULTING IN DISABLED KEY FROM SENDGRID
 
         static async Task Main()
         {
